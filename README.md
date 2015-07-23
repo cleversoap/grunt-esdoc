@@ -103,6 +103,9 @@ grunt.registerTask('default', ['lint', 'test', 'esdoc']);
 
 Any contribution is welcome! Please check the [issues](https://github.com/cleversoap/grunt-esdoc/issues).
 
+## Release History
+ * _0.0.1_ First Release - using esdoc 0.1.4 and directly passing through options using the default publisher
+
 ## License
 Copyright (c) 2015 Cleversoap
 Licensed under the MIT license.
