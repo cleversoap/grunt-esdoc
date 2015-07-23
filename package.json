@@ -1,0 +1,17 @@
+{
+    "name": "grunt-esdoc",
+    "author": "cleversoap <clever@cleversoap.com>",
+    "version": "0.0.1",
+
+    "main": "Gruntfile.js",
+
+    "dependencies": {
+        "esdoc": "0.1.4"
+    },
+
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "load-grunt-tasks": "~0.3.0",
+        "grunt-contrib-clean": "~0.5.0"
+    }
+}
