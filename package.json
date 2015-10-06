@@ -6,7 +6,7 @@
     "main": "Gruntfile.js",
 
     "dependencies": {
-        "esdoc": "0.1.4"
+        "esdoc": "~0.4.0"
     },
 
     "devDependencies": {
