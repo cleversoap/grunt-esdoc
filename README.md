@@ -1,5 +1,4 @@
 # grunt-esdoc
-[![Npm Downloads](https://nodei.co/npm/grunt-esdoc.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-esdoc.png?downloads=true&stars=true)
 
 Grunt plugin for the ES6 documentation tool [ESDoc](https://esdoc.org/)
 
