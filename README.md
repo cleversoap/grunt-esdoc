@@ -1,5 +1,4 @@
 # grunt-esdoc
-[![Npm Downloads](https://nodei.co/npm/grunt-esdoc.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-esdoc.png?downloads=true&stars=true)
 
 Grunt plugin for the ES6 documentation tool [ESDoc](https://esdoc.org/)
 
@@ -105,6 +104,7 @@ Any contribution is welcome! Please check the [issues](https://github.com/clever
 
 ## Release History
  * _0.0.1_ First Release - using esdoc 0.1.4 and directly passing through options using the default publisher
+ * _0.0.2_ Using esdoc ~0.4.0 and updated the package metadata with relevant links
 
 ## License
 Copyright (c) 2015 Cleversoap

@@ -1,9 +1,17 @@
 {
     "name": "grunt-esdoc",
     "author": "cleversoap <clever@cleversoap.com>",
-    "version": "0.0.1",
+    "version": "0.0.2",
+    "license": "MIT",
 
     "main": "Gruntfile.js",
+
+    "homepage": "https://github.com/cleversoap/grunt-esdoc",
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cleversoap/grunt-esdoc.git"
+    },
 
     "dependencies": {
         "esdoc": "~0.4.0"
