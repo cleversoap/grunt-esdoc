@@ -1,25 +1,35 @@
 {
     "name": "grunt-esdoc",
     "author": "cleversoap <clever@cleversoap.com>",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
-
-    "main": "Gruntfile.js",
-
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "main": "tasks/esdoc.js",
+    "scripts": {
+        "test": "grunt"
+    },
+    "keywords": [
+        "grunt",
+        "plugin",
+        "esdoc",
+        "ES6",
+        "documentation"
+    ],
+    "directories": {
+        "test": "test"
+    },
     "homepage": "https://github.com/cleversoap/grunt-esdoc",
-
+    "bugs": "https://github.com/cleversoap/grunt-esdoc/issues",
     "repository": {
         "type": "git",
         "url": "https://github.com/cleversoap/grunt-esdoc.git"
     },
-
     "dependencies": {
-        "esdoc": "~0.4.0"
+        "esdoc": "^0.4.7"
     },
-
     "devDependencies": {
-        "grunt": "~0.4.2",
-        "load-grunt-tasks": "~0.3.0",
-        "grunt-contrib-clean": "~0.5.0"
+        "grunt": "^1.0.1"
     }
 }

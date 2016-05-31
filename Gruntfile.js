@@ -10,9 +10,6 @@
 var path = require('path');
 
 module.exports = function (grunt) {
-    // load all npm grunt tasks
-    require('load-grunt-tasks')(grunt);
-
     // Project configuration.
     grunt.initConfig({
 
@@ -24,17 +21,10 @@ module.exports = function (grunt) {
             }
         },
 
-        clean: {
-            dist: [ path.resolve('test','doc') ]
-        }
-
     });
 
     // Load task
     grunt.loadTasks('tasks');
-
-    // Tasks
-    grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Run Task
     grunt.registerTask('default', ['esdoc']);
