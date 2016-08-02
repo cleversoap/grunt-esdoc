@@ -106,6 +106,7 @@ Any contribution is welcome! Please check the [issues](https://github.com/clever
  * _0.0.1_ First Release - using esdoc 0.1.4 and directly passing through options using the default publisher
  * _0.0.2_ Using esdoc ~0.4.0 and updated the package metadata with relevant links
  * _0.0.3_ Upgrade to at least node 4.0.0, upgrade to esdoc 0.4.7, cleaned up output to only show coverage by default
+ * _0.0.4_ Will now parse float percentages of coverage
 
 ## License
 Copyright (c) 2016 Cleversoap
