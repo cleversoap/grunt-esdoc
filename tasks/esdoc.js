@@ -62,8 +62,8 @@ module.exports = function (grunt) {
             // some to iterate over the reversed lines until one matching
             // the regex is found
             lines.reverse().some((ln, m) => {
-                if (m = ln.match(/^Coverage:\s*(\d{1,3})%\s*\((\d+)\/(\d+)\)$/)) {
-                    const percent = parseInt(m[1]);
+                if (m = ln.match(/^Coverage:\s*(\d{1,3}(?:\.\d{0,2}))%\s*\((\d+)\/(\d+)\)$/)) {
+                    const percent = parseFloat(m[1]);
                     const amount = parseInt(m[2]);
                     const total = parseInt(m[3]);
 
