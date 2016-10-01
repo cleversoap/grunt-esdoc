@@ -1,4 +1,5 @@
 {
     "source": "./test/src",
-    "destination": "./test/docs"
+    "destination": "./test/docs",
+    "coverage": true
 }
