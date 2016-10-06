@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     grunt.log[fileFail ? `warn` : `ok`](`Files: ${amount}/${total}`);
 
                     if (config.failOnCoverage && (percentFail || fileFail)) {
-                        grunt.fail.warn("Coverage results don't meet the treshold.")
+                        grunt.fail.warn(`Coverage results don't meet the treshold.`)
                     }
                 }
 
