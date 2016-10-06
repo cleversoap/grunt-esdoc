@@ -69,7 +69,7 @@ module.exports = function (grunt) {
                         amount = parseInt(m[2]),
                         total = parseInt(m[3]),
                         percentFail = percent < config.percentThreshold,
-                        fileFail = (amount / total) < config.fileThreshold;
+                        fileFail = (amount / total * 100) < config.fileThreshold;
 
                     grunt.log[percentFail ? `warn` : `ok`](`Coverage: ${percent}%`);
                     grunt.log[fileFail ? `warn` : `ok`](`Files: ${amount}/${total}`);
