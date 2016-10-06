@@ -17,7 +17,10 @@ module.exports = function (grunt) {
 
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
-            coverage: true
+            coverage: true,
+            failOnCoverage: false,
+            percentThreshold: 0,
+            fileThreshold: 0
         });
 
         var config = {};
@@ -64,11 +67,18 @@ module.exports = function (grunt) {
                 if (m = ln.match(/^Coverage:\s*(\d{1,3}(?:\.?\d{0,2}))%\s*\((\d+)\/(\d+)\)$/)) {
                     const percent = parseFloat(m[1]),
                         amount = parseInt(m[2]),
-                        total = parseInt(m[3]);
+                        total = parseInt(m[3]),
+                        percentFail = percent < config.percentThreshold,
+                        fileFail = (amount / total) < config.fileThreshold;
 
-                    grunt.log[percent < 100 ? `warn` : `ok`](`Coverage: ${percent}%`);
-                    grunt.log[amount < total ? `warn` : `ok`](`Files: ${amount}/${total}`);
+                    grunt.log[percentFail ? `warn` : `ok`](`Coverage: ${percent}%`);
+                    grunt.log[fileFail ? `warn` : `ok`](`Files: ${amount}/${total}`);
+
+                    if (config.failOnCoverage && (percentFail || fileFail)) {
+                        grunt.fail.warn("Coverage results don't meet the treshold.")
+                    }
                 }
+
                 return m;
             });
 

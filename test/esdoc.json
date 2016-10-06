@@ -1,5 +1,8 @@
 {
     "source": "./test/src",
     "destination": "./test/docs",
-    "coverage": true
+    "coverage": true,
+    "failOnCoverage": true,
+    "percentThreshold": 90,
+    "fileThreshold": 50
 }
