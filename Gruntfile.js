@@ -1,31 +1,29 @@
-/*
-* grunt-esdoc
-*
-* Copyright (c) 2015
-* Licensed under the MIT license.
-*/
+const loadGruntConfig = require("load-grunt-config");
+const path = require("path");
 
-'use strict';
+module.exports = function(grunt) {
 
-var path = require('path');
+	const date = grunt.template.today("mmm dd yyyy");
 
-module.exports = function (grunt) {
-    // Project configuration.
-    grunt.initConfig({
+	// Load the implemented Grunt task.
+	grunt.loadTasks("tasks");
 
-        esdoc: {
-            dist: {
-                options: {
-                    config: 'test/esdoc.json'
-                }
-            }
-        },
+	loadGruntConfig(grunt, {
 
-    });
+		configPath: path.join(process.cwd(), "grunt/config"),
 
-    // Load task
-    grunt.loadTasks('tasks');
+		jitGrunt: {
+			customTasksDir: "grunt/tasks"
+		},
 
-    // Run Task
-    grunt.registerTask('default', ['esdoc']);
+		data: {
+			banner: "/**\n" +
+				" * <%= package.name %> v<%= package.version %> build " + date + "\n" +
+				" * <%= package.homepage %>\n" +
+				" * Copyright " + date.slice(-4) + " <%= package.author.name %>, <%= package.license %>\n" +
+				" */\n"
+		}
+
+	});
+
 };
