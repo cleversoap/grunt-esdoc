@@ -3,7 +3,8 @@
 	"version": "0.0.4",
 	"description": "Integrates ESDoc into your Grunt build setup.",
 	"homepage": "https://github.com/cleversoap/grunt-esdoc",
-	"main": "tasks/esdoc.js",
+	"main": "tasks/grunt-esdoc.js",
+	"module": "src/index.js",
 	"license": "MIT",
 
 	"keywords": [
