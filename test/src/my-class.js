@@ -1,14 +1,14 @@
 /**
-* This is MyClass for testing.
-*/
+ * Description of MyClass.
+ */
 export default class MyClass {
 
-    /**
-    * Here we have the method description
-    *
-    * @param {number} param this is param.
-    * @return {number} this is return.
-    */
-    method(param){}
+	/**
+	 * Description of method.
+	 *
+	 * @param {Number} param - Description of param.
+	 * @return {Number} Description of the return value.
+	 */
+	method(param) {}
 
 }
