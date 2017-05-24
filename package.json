@@ -27,9 +27,9 @@
         "url": "https://github.com/cleversoap/grunt-esdoc.git"
     },
     "dependencies": {
-        "esdoc": "^0.4.7"
+        "esdoc": "0.5.x"
     },
     "devDependencies": {
-        "grunt": "^1.0.1"
+        "grunt": "1.0.x"
     }
 }
