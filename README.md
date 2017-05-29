@@ -31,7 +31,7 @@ grunt.initConfig({
 Then, load the plugin
 
 ```javascript
-grunt.loadNpmTasks('grunt-jsdoc');
+grunt.loadNpmTasks('grunt-esdoc');
 ```
 
 [All ESDoc config properties are allowed under options](https://esdoc.org/config.html).
