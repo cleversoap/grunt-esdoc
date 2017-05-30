@@ -18,7 +18,7 @@ module.exports = {
 			moduleName: "<%= package.name.replace(/-/g, \"\").toUpperCase() %>",
 			banner: "<%= banner %>"
 		},
-		src: "src/index.js",
+		src: "<%= package.module %>",
 		dest: "tasks/<%= package.name %>.js"
 	}
 
