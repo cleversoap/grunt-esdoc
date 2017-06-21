@@ -55,7 +55,7 @@
 		"babel-preset-es2015-rollup": "3.0.x",
 		"grunt": "1.0.x",
 		"grunt-cli": "1.2.x",
-		"grunt-eslint": "19.0.x",
+		"grunt-eslint": "20.0.x",
 		"grunt-rollup": "1.0.x",
 		"jit-grunt": "0.10.x",
 		"load-grunt-config": "0.19.x",
