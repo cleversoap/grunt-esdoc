@@ -48,12 +48,13 @@
 	},
 
 	"dependencies": {
-		"esdoc": "0.5.x"
+		"esdoc": "1.x.x"
 	},
 
 	"devDependencies": {
 		"babel-core": "6.x.x",
 		"babel-preset-es2015-rollup": "3.x.x",
+		"esdoc-standard-plugin": "1.0.0",
 		"grunt": "1.x.x",
 		"grunt-cli": "1.x.x",
 		"grunt-eslint": "20.x.x",

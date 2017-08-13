@@ -1,10 +1,8 @@
 import esdoc from "esdoc";
-import publisher from "esdoc/out/src/Publisher/publish";
 
 /**
  * Registers the ESDoc Grunt task.
  *
- * @static
  * @param {Object} grunt - The Grunt instance.
  */
 
@@ -54,7 +52,7 @@ export default function registerESDocTask(grunt) {
 			};
 
 			// Pass the config to ESDoc to publish the documentation.
-			esdoc.generate(config, publisher);
+			esdoc.generate(config);
 
 			const coverageRegExp = /^Coverage:\s*(\d{1,3}(?:\.\d{0,2}))%\s*\((\d+)\/(\d+)\)$/;
 

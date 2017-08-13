@@ -1,5 +1,5 @@
 /**
- * grunt-esdoc v0.0.4 build May 24 2017
+ * grunt-esdoc v0.0.4 build Aug 14 2017
  * https://github.com/cleversoap/grunt-esdoc
  * Copyright 2017 cleversoap, MIT
  */
@@ -9,7 +9,6 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var esdoc = _interopDefault(require('esdoc'));
-var publisher = _interopDefault(require('esdoc/out/src/Publisher/publish'));
 
 function registerESDocTask(grunt) {
 
@@ -45,7 +44,7 @@ function registerESDocTask(grunt) {
 												}
 									};
 
-									esdoc.generate(config, publisher);
+									esdoc.generate(config);
 
 									var coverageRegExp = /^Coverage:\s*(\d{1,3}(?:\.\d{0,2}))%\s*\((\d+)\/(\d+)\)$/;
 
