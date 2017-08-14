@@ -5,7 +5,6 @@ module.exports = {
 	options: {
 		external: [
 			"esdoc",
-			"esdoc/out/src/Publisher/publish"
 		],
 		plugins: [
 			babel()
