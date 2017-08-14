@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/grunt-esdoc.svg)](https://badge.fury.io/js/grunt-esdoc)
 [![Dependencies](https://david-dm.org/cleversoap/grunt-esdoc.svg?branch=master)](https://david-dm.org/cleversoap/grunt-esdoc)
 
-A Grunt plugin for the ES6 documentation tool [ESDoc](https://esdoc.org/).
+A Grunt plugin for the ES2015+ documentation tool [ESDoc](https://esdoc.org/).
 
 
 ## Getting Started
@@ -54,7 +54,8 @@ grunt.initConfig({
 		compile: {
 			options: {
 				source: "src",
-				destination: "docs"
+				destination: "docs",
+				plugins: [{"name": "esdoc-standard-plugin"}]
 			}
 		}
 	}
@@ -76,7 +77,7 @@ grunt.registerTask("default", ["lint", "test", "esdoc"]);
 
 ## Configuration
 
-All [ESDoc config properties](https://esdoc.org/manual/configuration/config.html) are allowed under ```options```.
+All [ESDoc options](https://esdoc.org/manual/config.html) defined under ```options``` are passed to ESDoc:
 
 ```javascript
 grunt.initConfig({
@@ -85,56 +86,19 @@ grunt.initConfig({
 			options: {
 				source: "./path/to/src",
 				destination: "./path/to/esdoc/output",
-				includes: ["\\.(js|es6)$"],
-				excludes: ["\\.config\\.(js|es6)$"],
-				access: ["public", "protected"],
-				autoPrivate: true,
-				unexportIdentifier: false,
-				undocumentIdentifier: true,
-				builtinExternal: true,
-				importPathPrefix: "",
-				index: "./README.md",
-				package: "./package.json",
-				coverage: true,
-				test: {
-					type: "mocha",
-					source: "./test/src",
-					includes: ["Test\\.(js|es6)$"],
-					excludes: ["\\.config\\.(js|es6)$"]
-				}
-				title: "My Software Name",
-				styles: ["./path/to/style.css"],
-				scripts: ["./path/to/script.js"],
-				plugins: [{
-					name: "plugin-name-or-file-path",
-					option: null
-				}],
-				manual: {
-					globalIndex: true,
-					index: "./manual/index.md",
-					asset: "./manual/asset",
-					overview: ["./manual/overview.md"],
-					design: ["./manual/design.md"],
-					installation: ["./manual/installation.md"],
-					usage: ["./manual/usage.md"],
-					tutorial: ["./manual/tutorial.md"],
-					configuration: ["./manual/configuration.md"],
-					example: ["./manual/example.md"],
-					advanced: ["./manual/advanced.md"],
-					faq: ["./manual/faq.md"],
-					changelog: ["./CHANGELOG.md"]
-				},
-				lint: true,
-				experimentalProposal: {
-					classProperties: true,
-					objectRestSpread: true,
-					decorators: true,
-					doExpressions: true,
-					functionBind: true,
-					asyncGenerators: true,
-					exportExtensions: true,
-					dynamicImport: true
-				}
+				plugins: [
+					{
+						name: "esdoc-standard-plugin",
+						option: {
+							test: {
+								source: "./test/",
+								interfaces: ["describe", "it", "context", "suite", "test"],
+								includes: ["(spec|Spec|test|Test)\\.js$"],
+								excludes: ["\\.config\\.js$"]
+							}
+						}
+					}
+				]
 			}
 		}
 	}
@@ -148,7 +112,8 @@ Alternatively, you can specify a ```config``` path to a file containing the conf
 ```javascript
 {
 	"source": "src",
-	"destination": "docs"
+	"destination": "docs",
+	"plugins": [{"name": "esdoc-standard-plugin"}]
 }
 ```
 
@@ -174,13 +139,14 @@ Any contribution is welcome! Please check the [issues](https://github.com/clever
 
 ## Release History
 
- * _0.0.1_ First Release - using esdoc 0.1.4 and directly passing through options using the default publisher
- * _0.0.2_ Using esdoc ~0.4.0 and updated the package metadata with relevant links
- * _0.0.3_ Upgrade to at least node 4.0.0, upgrade to esdoc 0.4.7, cleaned up output to only show coverage by default
- * _0.0.4_ Will now parse float percentages of coverage
+ * _0.0.1_ First Release - using esdoc 0.1.4 and directly passing through options using the default publisher.
+ * _0.0.2_ Using esdoc ~0.4.0 and updated the package metadata with relevant links.
+ * _0.0.3_ Upgrade to at least node 4.0.0, upgrade to esdoc 0.4.7, cleaned up output to only show coverage by default.
+ * _0.0.4_ Will now parse float percentages of coverage.
+ * _1.0.0_ Most ESDoc features are now plugins. Check [here](https://esdoc.org/manual/migration.html) for more information.
 
 
 ## License
 
-Copyright (c) 2016 Cleversoap
+Copyright © 2016 Cleversoap  
 Licensed under the MIT license.
