@@ -38,11 +38,7 @@ export default function registerESDocTask(grunt) {
 		try {
 
 			// Hack console.log to capture ESDoc's output.
-			const lines = [];
-
-			console.log = function(msg) {
-
-				lines.push(msg);
+			console.log = function() {
 
 				if(grunt.option("verbose")) {
 
