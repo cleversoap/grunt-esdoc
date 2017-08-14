@@ -5,6 +5,7 @@ module.exports = {
 	options: {
 		external: [
 			"esdoc",
+			"path"
 		],
 		plugins: [
 			babel()

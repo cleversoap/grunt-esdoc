@@ -1,4 +1,5 @@
 import esdoc from "esdoc";
+import path from "path";
 
 /**
  * Registers the ESDoc Grunt task.
@@ -54,37 +55,20 @@ export default function registerESDocTask(grunt) {
 			// Pass the config to ESDoc to publish the documentation.
 			esdoc.generate(config);
 
-			const coverageRegExp = /^Coverage:\s*(\d{1,3}(?:\.\d{0,2}))%\s*\((\d+)\/(\d+)\)$/;
+			// Read the coverage results and report them via the console.
+			const coveragePath = path.join(config.destination, "coverage.json");
 
-			/**
-			 * Extracts the coverage values from the ESDoc log output.
-			 *
-			 * This goes in reverse (as coverage is near the end) and uses some() to
-			 * iterate over the reversed lines until one matching the regex is found.
-			 *
-			 * @private
-			 * @static
-			 * @param {String} ln - A line of ESDoc's captured output.
-			 */
+			if(grunt.file.exists(coveragePath)) {
 
-			lines.reverse().some(function extractCoverage(ln) {
+				const coverageReport = grunt.file.readJSON(coveragePath);
+				const coverage = coverageReport.coverage;
+				const expected = coverageReport.expectCount;
+				const actual = coverageReport.actualCount;
 
-				const result = ln.match(coverageRegExp);
+				grunt.log[(coverage < 100) ? "warn" : "ok"]("Coverage: " + coverage);
+				grunt.log[(actual < expected) ? "warn" : "ok"]("Files: " + actual + "/" + expected);
 
-				if(result !== null) {
-
-					const percent = parseFloat(result[1]);
-					const amount = parseInt(result[2]);
-					const total = parseInt(result[3]);
-
-					grunt.log[percent < 100 ? "warn" : "ok"]("Coverage: " + percent + "%");
-					grunt.log[amount < total ? "warn" : "ok"]("Files: " + amount + "/" + total);
-
-				}
-
-				return result;
-
-			});
+			}
 
 		} catch(error) {
 

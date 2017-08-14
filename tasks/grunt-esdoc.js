@@ -9,6 +9,7 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var esdoc = _interopDefault(require('esdoc'));
+var path = _interopDefault(require('path'));
 
 function registerESDocTask(grunt) {
 
@@ -46,24 +47,18 @@ function registerESDocTask(grunt) {
 
 									esdoc.generate(config);
 
-									var coverageRegExp = /^Coverage:\s*(\d{1,3}(?:\.\d{0,2}))%\s*\((\d+)\/(\d+)\)$/;
+									var coveragePath = path.join(config.destination, "coverage.json");
 
-									lines.reverse().some(function extractCoverage(ln) {
+									if (grunt.file.exists(coveragePath)) {
 
-												var result = ln.match(coverageRegExp);
+												var coverageReport = grunt.file.readJSON(coveragePath);
+												var coverage = coverageReport.coverage;
+												var expected = coverageReport.expectCount;
+												var actual = coverageReport.actualCount;
 
-												if (result !== null) {
-
-															var percent = parseFloat(result[1]);
-															var amount = parseInt(result[2]);
-															var total = parseInt(result[3]);
-
-															grunt.log[percent < 100 ? "warn" : "ok"]("Coverage: " + percent + "%");
-															grunt.log[amount < total ? "warn" : "ok"]("Files: " + amount + "/" + total);
-												}
-
-												return result;
-									});
+												grunt.log[coverage < 100 ? "warn" : "ok"]("Coverage: " + coverage);
+												grunt.log[actual < expected ? "warn" : "ok"]("Files: " + actual + "/" + expected);
+									}
 						} catch (error) {
 									grunt.fail.fatal(error);
 						} finally {
