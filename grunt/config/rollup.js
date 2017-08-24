@@ -15,7 +15,6 @@ module.exports = {
 	task: {
 		options: {
 			format: "cjs",
-			moduleName: "<%= package.name.replace(/-/g, \"\").toUpperCase() %>",
 			banner: "<%= banner %>"
 		},
 		src: "<%= package.module %>",
