@@ -27,7 +27,7 @@ grunt.loadNpmTasks("grunt-esdoc");
 
 ## Usage
 
-##### my-class.js
+##### MyClass.js
 
 ```javascript
 /**
