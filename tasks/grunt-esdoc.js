@@ -53,7 +53,7 @@ function registerESDocTask(grunt) {
 										var coverage = coverageReport.coverage;
 										var expected = coverageReport.expectCount;
 										var actual = coverageReport.actualCount;
-										var unsatisfactory = coverage < options.coverageThreshold;
+										var unsatisfactory = Number.parseFloat(coverage.replace("%", "")) < options.coverageThreshold;
 
 										grunt.log[unsatisfactory ? "warn" : "ok"]("Coverage: " + coverage);
 										grunt.log[unsatisfactory ? "warn" : "ok"]("Files: " + actual + "/" + expected);
