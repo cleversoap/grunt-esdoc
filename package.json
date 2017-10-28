@@ -42,11 +42,6 @@
 		"node": ">=4.0.0"
 	},
 
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/cleversoap/grunt-esdoc.git"
-	},
-
 	"dependencies": {
 		"esdoc": "1.x.x"
 	},
