@@ -1,35 +1,65 @@
 {
-    "name": "grunt-esdoc",
-    "author": "cleversoap <clever@cleversoap.com>",
-    "version": "0.0.4",
-    "license": "MIT",
-    "engines": {
-        "node": ">=4.0.0"
-    },
-    "main": "tasks/esdoc.js",
-    "scripts": {
-        "test": "grunt"
-    },
-    "keywords": [
-        "grunt",
-        "plugin",
-        "esdoc",
-        "ES6",
-        "documentation"
-    ],
-    "directories": {
-        "test": "test"
-    },
-    "homepage": "https://github.com/cleversoap/grunt-esdoc",
-    "bugs": "https://github.com/cleversoap/grunt-esdoc/issues",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cleversoap/grunt-esdoc.git"
-    },
-    "dependencies": {
-        "esdoc": "^0.4.7"
-    },
-    "devDependencies": {
-        "grunt": "^1.0.1"
-    }
+	"name": "grunt-esdoc",
+	"version": "1.0.0",
+	"description": "Integrates ESDoc into your Grunt build setup.",
+	"homepage": "https://github.com/cleversoap/grunt-esdoc",
+	"main": "tasks/grunt-esdoc.js",
+	"module": "src/index.js",
+	"license": "MIT",
+
+	"keywords": [
+		"grunt",
+		"plugin",
+		"esdoc",
+		"ES6",
+		"documentation"
+	],
+
+	"author": {
+		"name": "cleversoap",
+		"email": "clever@cleversoap.com"
+	},
+
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cleversoap/grunt-esdoc.git"
+	},
+
+	"bugs": {
+		"url": "https://github.com/cleversoap/grunt-esdoc/issues"
+	},
+
+	"files": [
+		"src",
+		"tasks"
+	],
+
+	"scripts": {
+		"test": "grunt build && grunt esdoc"
+	},
+
+	"engines": {
+		"node": ">=4.0.0"
+	},
+
+	"dependencies": {
+		"esdoc": "1.x.x"
+	},
+
+	"devDependencies": {
+		"babel-core": "6.x.x",
+		"babel-preset-es2015-rollup": "3.x.x",
+		"esdoc-standard-plugin": "1.x.x",
+		"grunt": "1.x.x",
+		"grunt-cli": "1.x.x",
+		"grunt-eslint": "20.x.x",
+		"grunt-rollup": "6.x.x",
+		"jit-grunt": "0.x.x",
+		"load-grunt-config": "0.x.x",
+		"rollup-plugin-babel": "3.x.x"
+	},
+
+	"peerDependencies": {
+		"grunt": ">=0.4.0"
+	}
 }
