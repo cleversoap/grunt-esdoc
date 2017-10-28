@@ -60,9 +60,10 @@ export default function registerESDocTask(grunt) {
 					const coverage = coverageReport.coverage;
 					const expected = coverageReport.expectCount;
 					const actual = coverageReport.actualCount;
+					const unsatisfactory = (coverage < options.coverageThreshold);
 
-					grunt.log[(coverage < options.coverageThreshold) ? "warn" : "ok"]("Coverage: " + coverage);
-					grunt.log[(actual < expected) ? "warn" : "ok"]("Files: " + actual + "/" + expected);
+					grunt.log[unsatisfactory ? "warn" : "ok"]("Coverage: " + coverage);
+					grunt.log[unsatisfactory ? "warn" : "ok"]("Files: " + actual + "/" + expected);
 
 				}
 

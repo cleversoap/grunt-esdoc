@@ -1,5 +1,5 @@
 /**
- * grunt-esdoc v1.0.0 build Oct 28 2017
+ * grunt-esdoc v1.0.0 build Oct 29 2017
  * https://github.com/cleversoap/grunt-esdoc
  * Copyright 2017 cleversoap, MIT
  */
@@ -53,9 +53,10 @@ function registerESDocTask(grunt) {
 										var coverage = coverageReport.coverage;
 										var expected = coverageReport.expectCount;
 										var actual = coverageReport.actualCount;
+										var unsatisfactory = coverage < options.coverageThreshold;
 
-										grunt.log[coverage < options.coverageThreshold ? "warn" : "ok"]("Coverage: " + coverage);
-										grunt.log[actual < expected ? "warn" : "ok"]("Files: " + actual + "/" + expected);
+										grunt.log[unsatisfactory ? "warn" : "ok"]("Coverage: " + coverage);
+										grunt.log[unsatisfactory ? "warn" : "ok"]("Files: " + actual + "/" + expected);
 								}
 						} catch (error) {
 
