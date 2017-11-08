@@ -42,6 +42,10 @@
 		"node": ">=4.0.0"
 	},
 
+	"eslintConfig": {
+		"extends": "delta"
+	},
+
 	"dependencies": {
 		"esdoc": "1.x.x"
 	},
@@ -50,6 +54,7 @@
 		"babel-core": "6.x.x",
 		"babel-preset-es2015-rollup": "3.x.x",
 		"esdoc-standard-plugin": "1.x.x",
+		"eslint-config-delta": "0.x.x",
 		"grunt": "1.x.x",
 		"grunt-cli": "1.x.x",
 		"grunt-eslint": "20.x.x",
