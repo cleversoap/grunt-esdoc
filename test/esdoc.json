@@ -1,4 +1,11 @@
 {
-    "source": "./test/src",
-    "destination": "./test/docs"
+	"verbose": false,
+	"coverageThreshold": 100.0,
+	"source": "./test/src",
+	"destination": "./test/docs",
+	"plugins": [
+		{
+			"name": "esdoc-standard-plugin"
+		}
+	]
 }
