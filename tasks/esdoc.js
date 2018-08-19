@@ -8,8 +8,7 @@
 
 "use strict";
 
-var esdoc = require(`esdoc`);
-var publisher = require(`esdoc/out/src/Publisher/publish`);
+var esdoc = require(`esdoc`).default;
 
 module.exports = function (grunt) {
 
@@ -17,7 +16,6 @@ module.exports = function (grunt) {
 
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
-            coverage: true
         });
 
         var config = {};
@@ -55,7 +53,7 @@ module.exports = function (grunt) {
             }
 
             // Pass the config to ESDoc to publish the documentation
-            esdoc.generate(config, publisher);
+            esdoc.generate(config);
 
             // If coverage is configured then parse out the coverage values
             // This goes in reverse (as coverage is near the end) and uses

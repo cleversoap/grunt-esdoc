@@ -34,37 +34,52 @@ Then, load the plugin
 grunt.loadNpmTasks('grunt-jsdoc');
 ```
 
-[All ESDoc config properties are allowed under options](https://esdoc.org/config.html).
+All ESDoc config properties are allowed under options (see the
+[ESDoc manual](https://esdoc.org/manual/config.html) for full details), for
+example this is, at the time of writing, the [esdoc](/esdoc/esdoc) full
+config with just the standard plugin:
 
 ```javascript
 grunt.initConfig({
-    esdoc : {
-        dist : {
-            options: {
-              source: './path/to/src',
-              destination: './path/to/esdoc',
-              includes: ['\\.(js|es6)$'],
-              excludes: ['\\.config\\.(js|es6)$'],
-              access: ['public', 'protected'],
-              autoPrivate: true,
-              unexportIdentifier: false,
-              undocumentIdentifier: true,
-              builtinExternal: true,
-              importPathPrefix: '',
-              index: './README.md',
-              package: './package.json',
-              coverage: true,
-              test: {
-                type: 'mocha',
-                source: './test/src',
-                includes: ['Test\\.(js|es6)$'],
-                excludes: ['\\.config\\.(js|es6)$']
-              }
-              title: 'My Software Name',
-              styles: ['./path/to/style.css'],
-              scripts: ['./path/to/script.js']
+    "esdoc": {
+        "source": "./src",
+        "destination": "./docs",
+        "includes": ["\\.js$"],
+        "excludes": ["\\.config\\.js$"],
+        "plugins": [{
+            "name": "esdoc-standard-plugin",
+            "option": {
+                "lint": {"enable": true},
+                "coverage": {"enable": true},
+                "accessor": {"access": ["public", "protected", "private"], "autoPrivate": true},
+                "undocumentIdentifier": {"enable": true},
+                "unexportedIdentifier": {"enable": false},
+                "typeInference": {"enable": true},
+                "brand": {
+                    "logo": "./logo.png",
+                    "title": "My Library",
+                    "description": "this is awesome library",
+                    "repository": "https://github.com/foo/bar",
+                    "site": "http://my-library.org",
+                    "author": "https://twitter.com/foo",
+                    "image": "http://my-library.org/logo.png"
+                },
+                "manual": {
+                    "index": "./manual/index.md",
+                    "globalIndex": true,
+                    "asset": "./manual/asset",
+                    "files": [
+                        "./manual/overview.md"
+                    ]
+                },
+                "test": {
+                    "source": "./test/",
+                    "interfaces": ["describe", "it", "context", "suite", "test"],
+                    "includes": ["(spec|Spec|test|Test)\\.js$"],
+                    "excludes": ["\\.config\\.js$"]
+                }
             }
-        }
+        }]
     }
 });
 ```
